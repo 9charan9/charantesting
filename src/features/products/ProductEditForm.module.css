@@ -1,0 +1,279 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.fieldset {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0;
+}
+
+.legend {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  padding: 0 8px;
+  margin-bottom: 16px;
+}
+
+.fieldGroup {
+  margin-bottom: 16px;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input.touched {
+  border-color: #d1d5db;
+}
+
+.input.error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.input.error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.errorMessage {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Specifications List */
+.specsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.specItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr 40px;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.specItem .input {
+  margin: 0;
+}
+
+.removeButton {
+  padding: 10px 12px;
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeButton:hover {
+  background-color: #fecaca;
+}
+
+.removeButton:active {
+  transform: scale(0.95);
+}
+
+/* Buttons */
+.addButton {
+  padding: 10px 16px;
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 2px solid #bfdbfe;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addButton:hover {
+  background-color: #bfdbfe;
+  border-color: #93c5fd;
+}
+
+.addButton:active {
+  transform: scale(0.98);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.submitButton {
+  flex: 1;
+  padding: 12px 24px;
+  background-color: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitButton:hover:not(.disabled) {
+  background-color: #5568d3;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.submitButton:active:not(.disabled) {
+  transform: scale(0.98);
+}
+
+.submitButton.disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.resetButton {
+  flex: 1;
+  padding: 12px 24px;
+  background-color: #f3f4f6;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resetButton:hover {
+  background-color: #e5e7eb;
+}
+
+.resetButton:active {
+  transform: scale(0.98);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .fieldset {
+    border-color: #374151;
+    background-color: #111827;
+  }
+
+  .legend {
+    color: #f3f4f6;
+  }
+
+  .label {
+    color: #d1d5db;
+  }
+
+  .input,
+  .textarea {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #f3f4f6;
+  }
+
+  .input:focus,
+  .textarea:focus {
+    border-color: #667eea;
+  }
+
+  .input.error {
+    background-color: #7f1d1d;
+    border-color: #dc2626;
+  }
+
+  .removeButton {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+  }
+
+  .addButton {
+    background-color: #1e3a8a;
+    color: #93c5fd;
+    border-color: #1e40af;
+  }
+
+  .resetButton {
+    background-color: #374151;
+    color: #f3f4f6;
+    border-color: #4b5563;
+  }
+
+  .resetButton:hover {
+    background-color: #4b5563;
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .fieldRow {
+    grid-template-columns: 1fr;
+  }
+
+  .specItem {
+    grid-template-columns: 1fr;
+  }
+
+  .specItem .removeButton {
+    margin-top: 8px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .submitButton,
+  .resetButton {
+    width: 100%;
+  }
+}

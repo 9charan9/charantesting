@@ -1,0 +1,163 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0;
+}
+
+.toolbar {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0 40px 0;
+}
+
+.toolbarLeft {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.toolbarLeft > * {
+  flex: 1;
+  min-width: 200px;
+}
+
+.toolbarRight {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.errorState {
+  padding: 40px 20px;
+  background-color: #fee2e2;
+  border: 2px solid #fecaca;
+  border-radius: 8px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.errorState p {
+  margin: 10px 0;
+  color: #991b1b;
+  font-weight: 500;
+}
+
+.errorState p:first-child {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+/* Notification */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  animation: slideInRight 0.3s ease-out;
+  z-index: 2000;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notification.success {
+  background-color: #dcfce7;
+  color: #166534;
+  border-left: 4px solid #22c55e;
+}
+
+.notification.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-left: 4px solid #ef4444;
+}
+
+.notification.warning {
+  background-color: #fef3c7;
+  color: #92400e;
+  border-left: 4px solid #f59e0b;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .errorState {
+    background-color: #7f1d1d;
+    border-color: #dc2626;
+  }
+
+  .errorState p {
+    color: #fca5a5;
+  }
+
+  .notification {
+    background-color: #1f2937;
+    color: #f3f4f6;
+  }
+
+  .notification.success {
+    background-color: #064e3b;
+    color: #d1fae5;
+    border-left-color: #10b981;
+  }
+
+  .notification.error {
+    background-color: #7f1d1d;
+    color: #fecaca;
+    border-left-color: #dc2626;
+  }
+
+  .notification.warning {
+    background-color: #78350f;
+    color: #fde047;
+    border-left-color: #f59e0b;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbarLeft {
+    width: 100%;
+  }
+
+  .toolbarLeft > * {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .toolbarRight {
+    width: 100%;
+  }
+
+  .toolbarRight button {
+    flex: 1;
+  }
+
+  .notification {
+    left: 16px;
+    right: 16px;
+    max-width: none;
+  }
+}
